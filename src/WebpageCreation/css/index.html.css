@@ -1,0 +1,773 @@
+/*
+这个是图像文字的代码。
+ */
+@font-face {
+    font-family: 'icomoon';
+    src:  url('../fonts/icomoon.eot?ol2gdq');
+    src:  url('../fonts/icomoon.eot?ol2gdq#iefix') format('embedded-opentype'),
+    url('../fonts/icomoon.ttf?ol2gdq') format('truetype'),
+    url('../fonts/icomoon.woff?ol2gdq') format('woff'),
+    url('../fonts/icomoon.svg?ol2gdq#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'icomoon' !important;
+    speak: never;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+body {
+    background-color: #f3f5f7;
+}
+
+/*双伪类清除浮动代码*/
+.clearfix:before,.clearfix:after{
+    content: "";
+    display: table;
+}
+
+.clearfix:after{
+    clear: both;
+}
+
+.clearfix{
+    *zoom:1; /*照顾低版本浏览器*/
+}
+
+/*居中部分*/
+.w {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+/*第一部分开始*/
+/*头部*/
+.header {
+    height: 42px;
+    /* 注意会覆盖w中的margin */
+    margin: 30px auto;
+background: skyblue;
+}
+
+/*logo部分*/
+.logo {
+    /*所以logo也是要加浮动*/
+    float: left;
+    width: 198px;
+    height: 42px;
+}
+
+/*导航栏部分*/
+.nav {
+    /*此时导航栏加了浮动，则前面的logo也是一定要加浮动,后面的也是要加浮动*/
+    float: left;
+    /*和前面的logo拉开距离*/
+    margin-left: 60px;
+}
+
+.nav ul li {
+    /*此时让字与字一行显示*/
+    float: left;
+    /*再次调整字与字的距离*/
+    margin: 0 15px;
+}
+
+/*清除a中所有下划线*/
+a {
+    text-decoration: none;
+}
+
+.nav ul li a {
+    /*将a转换为块级元素让其显示高度，并且字与字拉开距离*/
+    display: block;
+    height: 42px;
+    padding: 0 10px;
+    line-height: 42px;
+    font-size: 18px;
+    color: #050505;
+}
+
+.nav ul li a:hover {
+    /*鼠标经过时的下边框颜色*/
+    border-bottom: 2px solid skyblue;
+    /*鼠标经过时的文字颜色*/
+    color: rebeccapurple;
+}
+
+/*搜索模块*/
+.search {
+    float: left;
+    width: 412px;
+    height: 42px;
+    margin-left: 70px;
+}
+
+/*设置input的宽高*/
+.search input {
+    float: left;
+    width: 345px;
+    height: 40px;
+    /*清除input搜索框的右边框*/
+    border-right: 0;
+    /*调整input里的文字*/
+    font-size: 14px;
+    color: #bfbfbf;
+    /*调整文字到left边框的距离,因为设置了宽度所以会撑大盒子，所以360要减去15*/
+    padding-left: 15px;
+}
+
+/*按钮部分*/
+.search button {
+    float: left;
+    width: 50px;
+    height: 42px;
+    /*button默认有个边框需要我们手动去除*/
+    border: 0;
+    /*button的背景*/
+    background: url(../images/search.jpg) no-repeat;
+}
+
+/*头像和文字部分*/
+.user {
+    float: right;
+    line-height: 42px;
+    margin-right: 30px;
+    font-size: 14px;
+    color: #666;
+}
+
+.user img {
+    border-radius: 30px;
+    /*图片和文字垂直居中标签*/
+    vertical-align: middle;
+}
+/*第一部分结束*/
+
+/*第二部分开始*/
+/*右测导航栏*/
+.banner{
+    top: 0;
+    left: 0;
+    height: 421px;
+    background-color: #fff;
+}
+/*返回图*/
+.top{
+    position:fixed;
+    top: 30%;
+    right: -64px;
+    width: 200px;
+    height: 200px;
+    background: url(../images/map3.png) no-repeat ;
+}
+.top::before{
+    position:relative;
+    top: 30%;
+    left: 10px;
+    font-family: 'icomoon';
+    content: '\e902';
+    font-size: 36px;
+}
+.banner .top a{
+    position: relative;
+    top: 15%;
+    left: 10px;
+    display: block;
+    width: 50px;
+    height: 50px;
+    font-size: 0;
+}
+.banner .w{
+    background-size: 100% 100%;
+    animation: k 18s infinite;
+    height: 421px;
+    /*紧靠着上面的盒子*/
+    /*background: url(study/img/banner2.png) no-repeat top center;*/
+}
+
+@keyframes k {
+    0%{
+        background-image: url(../images/c.png);
+    }
+
+    25%{
+        background-image: url(../images/x.png);
+    }
+
+    75%{
+        background-image: url(../images/q.png);
+    }
+    100%{
+        background-image: url(../images/d.png);
+    }
+}
+/*左侧导航栏模块*/
+.subnav{
+    float: left;
+    width: 190px;
+    height: 421px;
+    /*半透明*/
+    background-color:rgba(0,0,0,0.3);
+}
+/*调整文字的颜色和大小*/
+.subnav ul li a{
+    font-size: 14px;
+    color: #fff;
+}
+/*调整li与li之间的距离并且垂直居中*/
+.subnav ul li {
+    height: 45px;
+    line-height: 45px;
+    /*调整左右距离边框的距离*/
+    padding: 0 20px;
+}
+
+.subnav ul li a span{
+    float: right;
+}
+
+.subnav ul li a:hover{
+    background: #00a4ff;
+}
+
+/*右测导航栏*/
+.course{
+    /*此时加右浮动，就要返回去subnav加左浮动*/
+    float: right;
+    width: 230px;
+    height: 350px;
+    background-color:rgba(0,0,0,0.3);
+    /*浮动的盒子不会有外边距合并（塌进去）的问题*/
+    margin-top: 0;
+}
+
+.course h2{
+    height: 48px;
+    background-color: #00a4ff;
+    font-size: 18px;
+    line-height: 48px;
+    text-align: center;
+    color: #fff;
+}
+
+/*盒子左右距离*/
+.course .bd{
+    padding: 0 20px;
+}
+
+/*h4*/
+.bd ul li h4{
+    font-size: 16px;
+    color:  #fff;
+}
+
+/*p*/
+.bd ul li p{
+    font-size: 12px;
+    color:  #a5a5a5;
+}
+
+/*小li上下距离和下边框*/
+.bd ul li{
+    padding: 14px 0;
+    border-bottom: 1px solid #00a4ff;
+}
+
+/*a标签里面的文字和边框*/
+.bd .more{
+    display: block;
+    height: 38px;
+    border: 1px solid #00a4ff;
+    text-align: center;
+    line-height: 38px;
+    color: #00a4ff;
+    font-size: 16px;
+    font-weight: 700;
+    margin-top: 0;
+}
+/*第二部分结束*/
+
+/*第三部分开始*/
+.goos{
+    height: 60px;
+    background: #fff;
+    /*盒子阴影*/
+    box-shadow: 5px 5px 3px rgba(0,0,0,0.3);
+    margin-top: 10px;
+    /*给父亲垂直居中，后面的孩子（h3,li,a）都会继承居中*/
+    line-height: 60px;
+}
+
+.goos h3{
+    /*为了不撑开盒子,所以给我们的h3设置左margin,a标签设置右margin*/
+    float: left;
+    margin-left: 30px;
+    /*后面加的margin-right: 30px;*/
+    margin-right: 30px;
+    font-size: 16px;
+    color: #00a4ff;
+}
+
+.goos ul li{
+    float: left;
+}
+
+.goos ul li a{
+    padding: 0 30px;
+    font-size: 16px;
+    color: #050505;
+    /*小a旁边的竖线，设置小a的左边框即可*/
+    border-left: 1px solid #ccc;
+}
+
+.goos .mod{
+    float: right;
+    margin-right: 30px;
+    font-size: 14px;
+    color: #00a4ff;
+}
+
+/*第三部分结束*/
+
+/*第四部分开始*/
+.box{
+    margin-top: 30px;
+}
+
+.box-hd{
+    height: 45px;
+}
+
+.box h3{
+    float: left;
+    font-size: 20px;
+    color: #494949;
+}
+
+.box a{
+    float: right;
+    font-size: 12px;
+    color: #a5a5a5;
+    margin-top: 10px;
+    margin-right: 30px;
+}
+
+
+.box-bd ul li{
+    float: left;
+    width: 228px;
+    height: 270px;
+    background: #fff;
+    margin-right: 15px;
+    margin-bottom: 15px;
+    /*给em的父亲li加相对定位*/
+    position: relative;
+}
+
+/*采用把li的父亲ul，修改的足够宽，一行能够装开5个盒子，而不采用修改每一行的最后一个li的右边距*/
+/*即给ul增加实际需求宽度*/
+.box-bd ul{
+    width: 1225px; /* (230+15)*5=1225  */
+}
+
+/*小盒子里面的内容*/
+/*将图片大小调整为和父亲盒子（li）一样大小*/
+.box-bd ul li>img{
+    width: 100%;
+}
+
+.box-bd ul li h4{
+    margin: 20px 20px 20px 25px;
+    font-size: 14px;
+    color: #050505;
+    font-weight: 400;
+}
+
+/*给em中的图片加绝对定位*/
+.box-bd ul li em{
+    position: absolute;
+    top: 4px;
+    right: -4px;
+}
+
+
+.box-bd .info{
+    margin: 0 20px 0 25px;
+    font-size: 12px;
+    color: #999;
+}
+
+.box-bd .info span{
+    color: #ff6700;
+}
+/*第四部分结束*/
+
+
+/*第五部分开始*/
+.box5{
+    position: relative;
+    width: 1200px;
+    height: 600px;
+    /*紧靠着上面的盒子*/
+    /*background: url(study/img/banner2.png) no-repeat top center;*/
+    animation: Y 12s infinite;
+    margin: 10px auto ;
+}
+
+@keyframes Y {
+    0%{
+        background-image: url(../images/map4.png);
+
+    }
+
+    50%{
+        background-image: url(../images/map5.png);
+    }
+
+    100%{
+        background-image: url(../images/map6.png);
+    }
+}
+
+/*底部小园点的盒子*/
+.promo {
+    /*绝对定位*/
+    position: absolute;
+    bottom: 15px;
+    /*定位算法*/
+    left: 50%;
+    margin-left: -35px;
+    width: 42px;
+    height: 13px;
+    background: rgba(255, 255, 255, .3);
+    /*盒子变成圆形,高度的一半*/
+    border-radius: 7px;
+}
+
+/*小园点可以用ul来做*/
+.promo li {
+    /*效力大小*/
+    width: 8px;
+    height: 8px;
+    background: #fff;
+    /*使用小li浮动并且小li圆形化*/
+    float: left;
+    border-radius: 50%;
+    /*拉开小li大小*/
+    margin: 3px;
+}
+
+/*当前位置小圆点变色*/
+.promo .selected1{
+    background-color: #ff5000;
+}
+/*第五部分结束*/
+
+/*第六部分开始*/
+.box6{
+    height: 770px;
+}
+
+.box6 .daohanlan{
+    text-align: center;
+    line-height: 60px;
+    margin-top: 15px;
+    height: 60px;
+}
+
+.box6 .life{
+    position: relative;
+    height: 550px;
+}
+
+.life .div1{
+    z-index: 5;
+    position: absolute;
+    top: 170px;
+    left: 20px;
+    width: 650px;
+    height: 360px;
+    animation: Z 40s infinite;
+}
+
+@keyframes Z {
+    0%{
+        background: url(../images/life1.jpg) no-repeat;
+    }
+    16%{
+        background: url(../images/life2.jpg) no-repeat;
+    }
+    38%{
+        background: url(../images/life3.jpg) no-repeat;
+    }
+    48%{
+        background: url(../images/life6.jpg) no-repeat;
+    }
+    58%{
+        background: url(../images/life7.jpg) no-repeat;
+    }
+    69%{
+        background: url(../images/life8.jpg) no-repeat;
+    }
+    82%{
+        background: url(../images/life4.jpg) no-repeat;
+    }
+    100%{
+        background: url(../images/life5.jpg) no-repeat;
+    }
+}
+
+
+.bigbox{
+    z-index: 1;
+    position: absolute;
+    top: 110px;
+    right: 0;
+    width: 590px;
+    height: 500px;
+}
+
+.life .div2{
+    border-radius: 50%;
+    height:200px;
+}
+
+.life .div2 h3{
+    font-size: 30px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    padding-top: 40px;
+}
+
+.life .div2 p{
+    font-size: 25px;
+    height: 20px;
+    text-align:center;
+    line-height: 20px;
+    color: #def6ff;
+}
+
+.bigbox .div2:hover{
+    background: #ff75f3;
+    border-shadow: 10px 10px 10px -4px rgba(0,0,0,0.3);
+    background-size: 100% 100%;
+}
+
+.life .div3{
+    border-radius: 50%;
+    height: 300px;
+}
+
+.bigbox .div3:hover{
+    border-shadow: 10px 10px 10px -4px rgba(0,0,0,0.3);
+    background-size: 100% 100%;
+    background: #88ff81;
+}
+
+.life .div3 h3{
+    font-size: 30px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    padding-top: 40px;
+}
+
+.life .div3 p{
+    font-size: 25px;
+    height: 20px;
+    text-align:center;
+    line-height: 20px;
+    color: #def6ff;
+}
+/*第六部分结束*/
+
+
+/*第七部分开始*/
+.music{
+    margin: 15px 0;
+    position: relative;
+    height: 600px;
+    background: #fff1f1;
+    border-radius: 90%;
+}
+
+.lovemusic h3{
+    position: absolute;
+    top: 0;
+    left: 500px;
+    height: 100px;
+    line-height: 100px;
+    text-align: center;
+    font-size: 20px;
+    color: #050505;
+}
+
+.wen1{
+    position: absolute;
+    top: 100px;
+    left: 425px;
+    height: 200px;
+    width: 350px;
+}
+.wen1 h3{
+    height: 100px;
+    line-height: 100px;
+    color: #00a4ff;
+    text-align: center;
+}
+
+.wen2{
+    position: absolute;
+    top: 330px;
+    left: 425px;
+    height: 200px;
+    width: 350px;
+}
+
+.wen2 h3{
+    height: 100px;
+    line-height: 100px;
+    color: #00a4ff;
+    text-align: center;
+}
+
+.video1{
+    position: absolute;
+    top: 100px;
+    left: 50px;
+    height: 200px;
+    width: 350px;
+}
+
+.video1 video{
+    width: 100%;
+    height: 100%;
+}
+
+.video2{
+    position: absolute;
+    top: 100px;
+    right: 50px;
+    height: 200px;
+    width: 350px;
+
+}
+
+.video2 video{
+    width: 100%;
+    height: 100%;
+}
+
+.music1{
+    position: absolute;
+    top: 330px;
+    left: 50px;
+    height: 200px;
+    width: 350px;
+}
+
+.selected4{
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+}
+
+.button4{
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+}
+
+.music2{
+    position: absolute;
+    top: 330px;
+    right: 50px;
+    height: 200px;
+    width: 350px;
+}
+
+.music video{
+    width: 100%;
+    height: 100%;
+}
+/*第七部分结束*/
+
+/*结尾开始*/
+/*因为第四部分没有设置高度,所以现在需要清除浮动,我采用双伪类的方法清除浮动 代码在CSS中13-25行，添加在HTML中的100行的ul中*/
+.footer{
+    background: url(../images/life.png) no-repeat;
+    background-size: 100% 100%;
+    height: 415px;
+    background-color:#fff;
+}
+
+.footer.w{
+    padding-top:35px;/*加margin 不合适我用padding*/
+}
+
+/*左侧盒子*/
+.copyright{
+    float: left;
+    padding-top:35px;
+}
+/*右侧盒子*/
+.links{
+    float: right;
+    padding-top:35px;
+}
+
+/*左侧盒子里面的内容*/
+.copyright p{
+    margin: 20px 0 15px 0;
+    font-size: 16px;
+    color: #ff0d21;
+}
+/*左侧盒子里面的a标签，a标签是一定要涉及到display*/
+.copyright .app{
+    display: block;
+    width: 118px;
+    height: 33px;
+    line-height: 33px;
+    text-align: center;
+    font-size: 16px;
+    color: red;
+    border: 1px solid red;
+}
+
+/*右侧盒子里面的内容,我用dl来做*/
+.links dl dt a{
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.links dl dd a{
+    font-size: 12px;
+    color:rebeccapurple;
+}
+
+.links dl{
+    float: left;
+    /*拉开距离*/
+    margin-left: 100px;
+}
+/*结尾结束*/
